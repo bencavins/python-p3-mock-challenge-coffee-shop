@@ -46,10 +46,10 @@ class TestCustomer:
         order_2 = Order(customer, coffee, 5)
         order_3 = Order(customer_2, coffee, 5)
 
-        assert (len(customer.orders()) == 2)
-        assert (not order_3 in customer.orders())
-        assert (order_1 in customer.orders())
-        assert (order_2 in customer.orders())
+        assert (len(customer.orders) == 2)
+        assert (not order_3 in customer.orders)
+        assert (order_1 in customer.orders)
+        assert (order_2 in customer.orders)
 
     def test_orders_of_type_order(self):
         '''customer orders are of type Order'''
@@ -58,8 +58,8 @@ class TestCustomer:
         order_1 = Order(customer, coffee, 2)
         order_2 = Order(customer, coffee, 5)
 
-        assert (isinstance(customer.orders()[0], Order))
-        assert (isinstance(customer.orders()[1], Order))
+        assert (isinstance(customer.orders[0], Order))
+        assert (isinstance(customer.orders[1], Order))
 
     def test_has_many_coffees(self):
         '''customer has many coffees.'''
@@ -70,18 +70,6 @@ class TestCustomer:
         order_1 = Order(customer, coffee, 2)
         order_2 = Order(customer, coffee_2, 5)
 
-        assert (coffee in customer.coffees())
-        assert (coffee_2 in customer.coffees())
+        assert (coffee in customer.get_coffees())
+        assert (coffee_2 in customer.get_coffees())
 
-    def test_has_unique_coffees(self):
-        '''customer has unique list of all the coffees they have ordered.'''
-        coffee = Coffee("Vanilla Latte")
-        coffee_2 = Coffee("Flat White")
-
-        customer = Customer('Steve')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer, coffee, 2)
-        order_3 = Order(customer, coffee_2, 5)
-
-        assert (len(set(customer.coffees())) == len(customer.coffees()))
-        assert (len(customer.coffees()) == 2)

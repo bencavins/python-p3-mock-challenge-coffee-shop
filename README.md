@@ -87,6 +87,9 @@ build out any helper methods if needed.
 
 #### Order
 
+- `Order __init__`
+  - Takes a cusomter (`Customer`), coffee (`Coffee`), and price (`int`)
+  - Adds the new order instance to the coffee's orders array and the customer's orders array
 - `Order property customer`
   - Returns the customer object for that order
   - Must be of type `Customer`
@@ -107,12 +110,6 @@ build out any helper methods if needed.
   - Returns a list of all coffees a customer has ordered
 
 ### Aggregate and Association Methods
-
-#### Customer
-
-- `Customer create_order(coffee, price)`
-  - given a **coffee object** and a price(as an integer), creates a
-    new order and associates it with that customer and coffee.
 
 #### Coffee
 

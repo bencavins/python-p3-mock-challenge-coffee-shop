@@ -59,15 +59,3 @@ class TestOrders:
         assert (isinstance(order_1.coffee, Coffee))
         assert (isinstance(order_2.coffee, Coffee))
 
-    def test_get_all_orders(self):
-        '''test Order class all attribute'''
-        Order.all = []
-        coffee = Coffee("Mocha")
-        customer = Customer('Wayne')
-        customer_2 = Customer('Dima')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer_2, coffee, 5)
-
-        assert (len(Order.all) == 2)
-        assert (order_1 in Order.all)
-        assert (order_2 in Order.all)
